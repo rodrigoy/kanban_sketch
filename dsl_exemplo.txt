@@ -1,3 +1,5 @@
+- Exemplo 1:
+
 selected:2
   -F
   -G
@@ -8,5 +10,9 @@ development:4
   -D
   -C
   -B
-deploy
- -A
+
+- Exemplo 2:
+stages:selected,development{in-progress,done}
+selected*2:F,G
+in-progress*2:E
+done*2:D,C,B
