@@ -1,0 +1,3 @@
+class Stage
+  
+end
