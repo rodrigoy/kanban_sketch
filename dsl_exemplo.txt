@@ -8,3 +8,5 @@ development:4
   -D
   -C
   -B
+deploy
+ -A
