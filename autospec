@@ -1,0 +1,2 @@
+export RSPEC=true
+autotest
