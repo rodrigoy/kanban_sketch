@@ -1,5 +1,4 @@
-- Exemplo 1:
-
+- Sample 1:
 selected:2
   -F
   -G
@@ -11,8 +10,43 @@ development:4
   -C
   -B
 
-- Exemplo 2:
+- Sample 2:
 stages:selected,development{in-progress,done}
 selected*2:F,G
 in-progress*2:E
 done*2:D,C,B
+
+- Sample 3:
+{Next:2}Task1
+{Analysis:3;Ongoing}Task2;Task3
+{Analysis:3;Done}Task4
+{Development:3;Ongoing}Task5;Task6
+{Development:3;Done}Task7
+{Acceptance:2;Ongoing}Task8;Task9
+{Acceptance:2;Done}Task10
+{Production}Task4
+
+- Sample 4:
+-Next:2
+Task1
+-Analysis:3
+--Ongoing
+Task2
+Task3
+--Done
+Task4
+-Development:3
+--Ongoing
+Task5
+Task6
+--Done
+Task7
+-Acceptance:2
+--Ongoing
+Task8
+Task9
+-Acceptance:2
+--Done
+Task10
+--Production
+Task4

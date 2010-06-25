@@ -2,21 +2,18 @@ require 'spec_helper'
 
 describe Kanban do
   describe ".parse" do
-    context "with a valid yaml file" do
+    context "with a valid kanban text" do
       before(:each) do
-        @file = File.expand_path(File.dirname(__FILE__) + '/samples/board1.yml')
+        @text = "one_stage:1"
+        @kanban = Kanban.parse(@text)
       end
       it "should parse" do
-        Kanban.parse(@file)
+        @kanban.should_not be_nil
       end
-    end
-
-    context "with a invalid yaml file" do
-      before(:each) do
-        @file = File.expand_path(File.dirname(__FILE__) + '/samples/asdfasdf.yml')
-      end
-      it "should raise an error" do
-        lambda{Kanban.parse @file}.should raise_error
+      context "with 1 stage" do
+        it "should have 1 stage" do
+          @kanban.should have(1).stages
+        end
       end
     end
   end
