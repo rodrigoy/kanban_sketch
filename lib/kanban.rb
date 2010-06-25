@@ -6,9 +6,4 @@ class Kanban
   def initialize
     self.stages = []
   end
-
-  def self.parse(text)
-    parser = DSLToKanban.new(line)
-    parser.parse
-  end
 end
