@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Task do
-  subject{Task.new("name")}
+describe Card do
+  subject{Card.new("name")}
 
   it "should have name" do
     subject.name.should_not be_nil

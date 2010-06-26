@@ -1,5 +1,5 @@
 require "kanban/stage"
-require "kanban/task"
+require "kanban/card"
 
 class Kanban
   attr_accessor :stages
