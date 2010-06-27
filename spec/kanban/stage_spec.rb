@@ -11,8 +11,8 @@ describe Stage do
     subject.name.should be_eql("name")
   end
 
-  it "should have tasks" do
-    subject.tasks.should be_eql([])
+  it "should have cards" do
+    subject.cards.should be_eql([])
   end
 
   it "should have substages" do
