@@ -1,9 +1,26 @@
 class DslToKanban
-  attr_accessor :line
-  def initialize(line)
-    self.line = line
+  attr_accessor :text
+  def initialize(text)
+    self.text = text
   end
+
   def parse
-    Kanban.new
+    kanban = Kanban.new
+    text.each_line do |line|
+      kanban.stages << Stage.new(*(line.match(/-(.*):?(\d+)?/).captures)) if stage?(line)
+    end
+    kanban
+  end
+
+  def card?(line)
+    line.match(/^[^-](.+)/)
+  end
+
+  def stage?(line)
+    line.match(/^-[^-](.+)/)
+  end
+
+  def substage?(line)
+    line.match(/^--(.+)/)
   end
 end
