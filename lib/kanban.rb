@@ -2,7 +2,7 @@ require "kanban/stage"
 require "kanban/card"
 
 class Kanban
-  attr_accessor :name, :stages
+  attr_accessor :stages
   def initialize
     self.stages = []
   end

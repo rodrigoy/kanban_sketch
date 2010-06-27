@@ -5,7 +5,4 @@ describe Kanban do
   it "should have stages" do
     subject.stages.should_not be_nil
   end
-  it "should have name" do
-    subject.should respond_to(:name)
-  end
 end
