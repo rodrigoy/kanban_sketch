@@ -1,4 +1,4 @@
-require 'application'
+require '../application'
 require 'test/unit'
 require 'rack/test'
 
@@ -15,7 +15,6 @@ describe 'Main application screens' do
   it 'should respond to /' do
     get '/'
     last_response.should be_ok
-    last_response.body.should == "Hello, world!"
   end
 
 end
