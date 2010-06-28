@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Stage do
-  subject{Stage.new("name", 1)}
+  subject{Stage.new(" name ", "1")}
 
-  it "should have limit" do
-    subject.limit.should be_eql(1)
+  it "should have limit as a number" do
+    subject.limit.should == 1
   end
 
-  it "should have name" do
+  it "should have name without spaces at begin and end" do
     subject.name.should be_eql("name")
   end
 
