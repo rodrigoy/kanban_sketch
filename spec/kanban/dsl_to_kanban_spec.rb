@@ -51,11 +51,11 @@ describe DslToKanban do
     context "with a kanban of 1 stage, 1 substage and one card" do
       before(:each) do
         @text = <<-KB
-Kanban name
 - Stage
 -- Subtage
 Card 1 inside Substage
         KB
+
         @parser = DslToKanban.new(@text)
         @kanban = @parser.parse
       end
@@ -65,11 +65,14 @@ Card 1 inside Substage
       it do
         @kanban.should have(1).stages
       end
+      it "should have one card inside the first stage" do
+        @kanban.stages[0].should have(1).cards
+      end
     end
 
     context "with a valid kanban text" do
       before(:each) do
-        @text = "one_stage:1"
+        @text = "- Stage"
         @parser = DslToKanban.new(@text)
         @kanban = @parser.parse
       end

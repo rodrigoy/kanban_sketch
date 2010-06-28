@@ -8,6 +8,7 @@ class DslToKanban
     kanban = Kanban.new
     text.each_line do |line|
       kanban.stages << Stage.new(*(line.match(/-(.*):?(\d+)?/).captures)) if stage?(line)
+      kanban.stages[-1].cards << Card.new(line) if card?(line)
     end
     kanban
   end
