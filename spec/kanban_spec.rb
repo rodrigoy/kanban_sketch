@@ -17,25 +17,4 @@ describe Kanban do
     subject.add_stage('to do', limit=2).stages[0].limit.should eql(2)
   end
 
-  it "should add cards to stages" do
-    subject.add_stage('to do').\
-      stages[0].\
-        add_card('A').\
-        add_card('B').\
-          cards.size.should eql(2)
-  end
-
-  it "should warn wip limit violations" do
-    subject.add_stage('to do', limit=2).\
-      stages[0].\
-        add_card('A').\
-        add_card('B').\
-          wip_limit_violated?.should be_false
-    
-    subject.\
-      stages[0].\
-        add_card('C').\
-          wip_limit_violated?.should be_true
-  end
-
 end

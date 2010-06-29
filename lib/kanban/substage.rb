@@ -1,19 +1,11 @@
-require File.dirname(__FILE__) + '/substage'
-
-class Stage
+class SubStage
   attr_accessor :name, :limit, :substages, :cards
   
-  def initialize(name, limit=0)
+  def initialize(stage, name, limit=0)
+    @stage = stage    
     @name = name.strip if name
     @limit = limit.to_i if limit
-    @substages = []
     @cards = []
-  end
-
-  def add_substage(name, limit=0)
-    substage = SubStage.new(self, name, limit)
-    @substages << substage
-    return self
   end
 
   def add_card name
