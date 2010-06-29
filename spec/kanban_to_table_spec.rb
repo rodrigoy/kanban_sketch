@@ -19,6 +19,12 @@ describe KanbanToTable do
     table.td[1][0].should eql('C')
     table.td[2][0].should eql('E')
   end
+    
+  it "should warn wip limit violations" do
+    kanban = KanbanToTable.render(simple_kanban_with_wip_limit_violation)
+    kanban.th[0].violated.should be_false
+    kanban.th[2].violated.should be_true
+  end
 
   protected
 
@@ -40,4 +46,9 @@ describe KanbanToTable do
     return kanban
   end
 
+  def simple_kanban_with_wip_limit_violation
+    kanban = simple_kanban_with_stories
+    kanban.stages[2].add_card('F').add_card('G').add_card('H')
+    return kanban
+  end
 end

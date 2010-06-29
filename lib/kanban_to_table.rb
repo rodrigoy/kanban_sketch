@@ -10,6 +10,7 @@ class KanbanToTable
     kanban.stages.each do |stage| 
       tdc = OpenStruct.new()
       tdc.p1 = stage.limit > 0 ? stage.limit : ''
+      tdc.violated = stage.wip_limit_violated?
       tdc.p2 = stage.name
       table.th << tdc
       table.td << render_cards(stage)

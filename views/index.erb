@@ -53,7 +53,12 @@
       color:green;
       height:1em;
     }
-		
+
+    p.p1_violated {
+      color: white;
+      background-color: red;
+      height:1.3em;
+    }		
 		#header {
 			position: relative;
 			height: 150px;
@@ -131,7 +136,7 @@
       <table class="kanban">
         <tr>      
           <% @table.th.each do |th| %>
-          <th><p class="p1"><%= th.p1 %></p><p class="p2"><%= th.p2 %></p></th>
+          <th><p class="p1<%= th.violated ? '_violated' : '' %>"><%= th.p1 %></p><p class="p2"><%= th.p2 %></p></th>
           <% end %>
         </tr>
         <tr>      

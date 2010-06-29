@@ -12,4 +12,8 @@ class Stage
     @cards << name
     return self
   end
+
+  def wip_limit_violated?
+    @limit > 0 && @cards.size > @limit
+  end
 end
