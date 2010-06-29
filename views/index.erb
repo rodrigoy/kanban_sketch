@@ -20,6 +20,39 @@
 			min-height: 100%;
 			position: relative;
 		}
+
+    table.kanban {
+      width:auto;      
+      border-collapse: collapse;
+      border: solid 3px black;
+    }
+
+    table.kanban tr th {
+      padding:5px;
+      text-align:center;      
+      backgound-color: yellow;
+      border: solid 2px black;
+    }
+
+    table.kanban tr td {
+      padding:5px;
+      vertical-align:top;
+      text-align:center;      
+      border: solid 2px black;
+    }
+
+    #card {
+      background-color: gray;
+      border: inset, 1px, gray;
+      margin:5px;
+      padding:3px;
+      width:60px;
+    }
+
+    p.p1 {
+      color:green;
+      height:1em;
+    }
 		
 		#header {
 			position: relative;
@@ -63,82 +96,7 @@
 			font-size: 12px;
 		}
 		
-		#container {
-			position: relative;
-			margin-top: 50px;
-		}
-		
-		#container #botoes .botao {
-			float: left;
-			/*width: 33.33%;*/
-			min-height: 100px;
-			height: auto;
-			position: relative;
-		}
-		
-		#container #botoes .botao.selected {
-			border-right: 1px solid #000;
-		}
-		
-		#container #botoes .botao.deploy {
-			border-left: 1px solid #000;
-		}
-		
-		#container #botoes .botao .dev .done {
-			border-left: 1px solid #000;
-		}
-		
-		#container #botoes .botao .dev .board {
-			float: left;
-			width: 49%;
-			min-height: 100px;
-			height: auto;
-			position: relative;
-		}
-		
-		#container #botoes .botao .dev .boardname {
-			top: 15px;
-			border-bottom: 1px solid #000;
-		}
-		
-		#container #botoes .botao .boardname.padrao {
-			height: 45px;
-			line-height: 45px;
-		}
-		
-		#container #botoes .botao span.deveplopment {
-			line-height: 15px;
-			height:14px;
-			border-bottom: 1px solid #000;
-		}
-		
-		#container #botoes .botao .boardname {
-			background-color: #FFFFFF;
-			display:block;
-			height:30px;
-			line-height:30px;
-			position:absolute;
-			text-align:center;
-			top:0;
-			width:100%;
-			z-index:2147483647;
-			border-bottom: 1px solid #000;
-		}
-		
-		#container #botoes .botao ul {
-			margin-top: 50px;
-		}
-		
-		#container #botoes .botao ul li {
-			display: block;
-			width: 80%;
-			min-height: 10px;
-			height: auto;
-			border: 1px solid #000;
-			text-align: center;
-			margin-bottom: 1%;
-		}
-		
+
 		#form {
 			text-align: center;
 			margin: 20px auto;
@@ -170,40 +128,22 @@
 			<h1 class="logo"><a href="#"></a></h1>
 		</div>
 		<div id="container">
-			<div id="botoes">
-				<div class="botao selected">
-					<span class="boardname padrao"><%= @hello %></span>
-					<ul>
-						<li>F</li>
-						<li>G</li>
-					</ul>
-				</div>
-				<div class="botao">
-					<span class="boardname deveplopment">DEVELOPMENT</span>
-					<div class="dev">
-						<div class="board">
-							<span class="boardname">IN PROGRESS</span>
-							<ul>
-								<li>E</li>
-							</ul>
-						</div>
-						<div class="board done">
-							<span class="boardname">DONE!</span>
-							<ul>
-								<li>D</li>
-								<li>C</li>
-								<li>B</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="botao deploy">
-					<span class="boardname padrao">DEPLOY</span>
-					<ul>
-						<li>A</li>
-					</ul>
-				</div>
-			</div>
+      <table class="kanban">
+        <tr>      
+          <% @table.th.each do |th| %>
+          <th><p class="p1"><%= th.p1 %></p><p class="p2"><%= th.p2 %></p></th>
+          <% end %>
+        </tr>
+        <tr>      
+        <% @table.td.each do |td| %>
+          <td>
+          <% td.each do |div| %>
+            <div id="card"><%= div %></div>
+          <% end %>
+          </td>
+        <% end %>
+        </tr>
+      </table>
 			<div class="clear"></div>
 			<form id="form" action="" method="post">
 				<textarea name="mensagem" id="mensagem" cols="50" rows="5"></textarea>

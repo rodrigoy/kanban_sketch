@@ -5,16 +5,14 @@ class KanbanToTable
   def self.render(kanban)
 
     table = OpenStruct.new()
-    table.th = OpenStruct.new()
-    table.tr = OpenStruct.new()
-    table.th.td = []
-    table.tr.td = []
+    table.th = []
+    table.td = []
     kanban.stages.each do |stage| 
       tdc = OpenStruct.new()
       tdc.p1 = stage.limit > 0 ? stage.limit : ''
       tdc.p2 = stage.name
-      table.th.td << tdc
-      table.tr.td << render_cards(stage)
+      table.th << tdc
+      table.td << render_cards(stage)
     end
 
     return table

@@ -1,5 +1,5 @@
-require "kanban/stage"
-require "kanban/card"
+require File.dirname(__FILE__) + '/kanban/stage'
+require File.dirname(__FILE__) + '/kanban/card'
 
 class Kanban
   attr_accessor :stages
