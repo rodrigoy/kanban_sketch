@@ -13,7 +13,8 @@
 		a:hover { text-decoration: underline; }
 		
 		#agile { 
-			text-align: justify;
+      padding:8px;			
+      text-align: justify;
 			width: 800px;
 			background-color: #FFF;
 			min-height: 100%;
@@ -164,14 +165,14 @@
 <body>
 	<div id="agile">
 		<div id="header">
-			<a href="#"><img src="" alt="" /></a>
+			<a href="#"><img src="/logo.png" alt="" /></a>
 			<h1 class="slogan"></h1>
 			<h1 class="logo"><a href="#"></a></h1>
 		</div>
 		<div id="container">
 			<div id="botoes">
 				<div class="botao selected">
-					<span class="boardname padrao">SELECTED</span>
+					<span class="boardname padrao"><%= @hello %></span>
 					<ul>
 						<li>F</li>
 						<li>G</li>
