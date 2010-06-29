@@ -1,4 +1,4 @@
-require '../application'
+require 'spec_helper'
 require 'test/unit'
 require 'rack/test'
 
