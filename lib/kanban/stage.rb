@@ -21,6 +21,10 @@ class Stage
   end
 
   def wip_limit_violated?
-    @limit > 0 && @cards.size > @limit
+    @limit > 0 && (@cards.size > @limit || substages_cards.size > @limit)
+  end
+
+  def substages_cards
+    @substages.each {|substage| cards << substage.cards}
   end
 end
