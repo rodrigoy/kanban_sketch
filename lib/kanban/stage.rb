@@ -11,8 +11,7 @@ class Stage
   end
 
   def add_substage(name, limit=0)
-    substage = SubStage.new(self, name, limit)
-    @substages << substage
+    @substages << SubStage.new(self, name, limit)
     return self
   end
 
