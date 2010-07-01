@@ -8,8 +8,8 @@ describe Kanban do
   end
 
   it "should add stages by name" do
-    subject.add_stage('to do').\
-      add_stage('in progress').\
+    subject.add_stage('to do').
+      add_stage('in progress').
         stages.size.should eql(2)
   end
 

@@ -13,16 +13,16 @@ describe Stage do
   end
 
   it "should add substages to stages" do
-    Stage.new('development', limit=2).\
-       add_substage('to do').\
-       add_substage('done').\
+    Stage.new('development', limit=2).
+       add_substage('to do').
+       add_substage('done').
        substages.size.should eql(2)
   end
 
   it "should warn wip limit violations from substages" do
     stage = Stage.new('development', limit=2)
-    stage.add_substage('to do').\
-       add_card('A').\
+    stage.add_substage('to do').
+       add_card('A').
        add_card('B')
     stage.add_substage('done')
     stage.wip_limit_violated?.should be_false
@@ -32,7 +32,7 @@ describe Stage do
   end
 
   it "should not accept cards if it has stages"
-  it "should not stages if it has cards"
+  it "should not accept stages if it has cards"
 
   protected
 

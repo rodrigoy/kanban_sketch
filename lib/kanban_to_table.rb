@@ -19,7 +19,7 @@ class KanbanToTable
     return table
   end
 
-  #todo: definetely there's a better rubism for this  
+  #todo: there might exist a better rubism for this  
   def self.render_cards(stage)
     div = []
     stage.cards.each do |card|
