@@ -25,7 +25,7 @@ class Stage
   end
 
   def substages_cards
-    @substages.each {|substage| cards << substage.cards}
+    @substages.collect {|substage| substage.cards}.flatten
   end
 
 end

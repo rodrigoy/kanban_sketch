@@ -135,8 +135,19 @@
 		<div id="container">
       <table class="kanban">
         <tr>      
-          <% @table.th.each do |th| %>
-          <th><p class="p1<%= th.violated ? '_violated' : '' %>"><%= th.p1 %></p><p class="p2"><%= th.p2 %></p></th>
+          <% @table.th1.each do |th| %>
+          <th colspan='<%= th.colspan%>' rowspan='<%= th.rowspan%>'>
+            <p class="p1<%= th.violated ? '_violated' : '' %>"><%= th.p1 %></p>
+            <p class="p2"><%= th.p2 %></p>
+          </th>
+          <% end %>
+        </tr>
+        <tr>      
+          <% @table.th2.each do |th| %>
+          <th>
+            <p class="p1<%= th.violated ? '_violated' : '' %>"><%= th.p1 %></p>
+            <p class="p2"><%= th.p2 %></p>
+          </th>
           <% end %>
         </tr>
         <tr>      
