@@ -13,4 +13,8 @@ class Kanban
     self.stages << stage
     return self
   end  
+
+  def has_substages?
+    !(stages.select {|stage| !stage.substages.empty?}).empty?
+  end 
 end

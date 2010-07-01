@@ -27,4 +27,5 @@ class Stage
   def substages_cards
     @substages.each {|substage| cards << substage.cards}
   end
+
 end

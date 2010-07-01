@@ -26,6 +26,10 @@ describe KanbanToTable do
     kanban.th[2].violated.should be_true
   end
 
+  it "should render substages" do
+    kanban = KanbanToTable.render(kanban_with_substages)
+  end
+
   protected
 
   def simple_kanban
@@ -51,4 +55,23 @@ describe KanbanToTable do
     kanban.stages[2].add_card('F').add_card('G').add_card('H')
     return kanban
   end
+
+  def kanban_with_substages
+    kanban = Kanban.new
+    kanban.add_stage('selected').
+      stages[0].add_card('A')
+
+    kanban.add_stage('development').
+      stages[1].
+        add_substage('in progress').
+        add_substage('done').
+          substages[1].
+            add_card('B').
+            add_card('C')
+
+    kanban.add_stage('deployment')
+ 
+    return kanban
+  end
+
 end
