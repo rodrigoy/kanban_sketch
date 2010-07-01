@@ -50,3 +50,12 @@ Task9
 Task10
 --Production
 Task4
+
+- Sample 5 (no line breaks - shorter)
+selected(A,B,R,T)
+development:5
+  [acceptance:1(C,Z)]
+  [in progress:3(Q,Y,W)]
+  [done!()]
+deployment:3(E)
+in production(F,K,L,M,N)        
