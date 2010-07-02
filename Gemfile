@@ -1,7 +1,7 @@
 source :gemcutter
 
 gem "sinatra"
-gem "rack"
+gem "rack", "1.1.0"
 gem "haml"
 gem "heroku"
 
