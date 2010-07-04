@@ -1,0 +1,23 @@
+grammar KanbanDSL
+
+  rule stage
+    name stories_body
+  end
+
+  rule stories_body
+    '(' story / stories ')'
+  end
+
+  rule stories
+    story ',' stories / story
+  end
+
+  rule story
+    name
+  end
+
+  rule name
+    [a-zA-Z0-9]*
+  end
+
+end
