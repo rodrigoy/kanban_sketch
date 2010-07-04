@@ -9,7 +9,7 @@ grammar KanbanDSL
   end
 
   rule stories
-    story ',' stories / story
+    (story [,]?)+
   end
 
   rule story
