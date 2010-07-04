@@ -5,8 +5,11 @@ describe KanbanDSL do
 
   it "should render Stages with Cards" do
     parser = KanbanDSLParser.new()
-    puts parser.parse("selected(A,B)") ## it should return the syntactical tree, but returns nil
-    puts parser.failure_reason
+    sel = parser.parse("selected(A,B,C)") ## it should return the syntactical tree, but returns nil
+
+    sel.should_not be_nil
+    sel.respond_to?(:stories).should be_true
+    parser.failure_reason.should be_nil
 
   end
 end
