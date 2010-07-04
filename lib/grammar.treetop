@@ -10,7 +10,7 @@ grammar KanbanDSL
   end
 
   rule story
-    name
+    [A-Z] name
   end
 
   rule name
