@@ -1,9 +1,8 @@
 grammar KanbanDSL
 
-  rule stage
-    name stories_body
+  rule stages
+    "selected" '(' stories ')'
   end
-
 
   rule stories
     (story [,]?)+
