@@ -4,9 +4,6 @@ grammar KanbanDSL
     name stories_body
   end
 
-  rule stories_body
-    '(' story / stories ')'
-  end
 
   rule stories
     (story [,]?)+
