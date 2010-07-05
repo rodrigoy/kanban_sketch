@@ -1,19 +1,19 @@
 grammar KanbanDSL
 
   rule stages
-    "selected" '(' stories ')'
+    (name (cards / substages) ';')*
   end
 
-  rule stories
-    (story [,]?)+
+  rule substages
+    '[' name cards ']'
   end
-
-  rule story
-    [A-Z] name
+  
+  rule cards
+    '(' (name [,]?)+ ')'
   end
 
   rule name
-    [a-zA-Z0-9]*
+    [a-zA-Z0-9\s]+
   end
 
 end
