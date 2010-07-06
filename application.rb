@@ -21,7 +21,7 @@ get '/' do
         substages[1].add_card('Q').add_card('Y').add_card('W')
   kanban.
     stages[1].
-      add_substage('done!').
+      add_substage('done').
         substages[2]
 
   kanban.add_stage('deployment', limit=3).stages[2].add_card('E')
