@@ -56,10 +56,13 @@ describe KanbanToTable do
     kanban = Kanban.new
     kanban.add_stage('selected')
     kanban.add_stage('development')
+    return kanban
   end
 
   def limited_kanban
-    simple_kanban.add_stage('deployment', limit=3)
+    kanban = simple_kanban
+    kanban.add_stage('deployment', limit=3)
+    return kanban
   end
 
   def simple_kanban_with_stories
@@ -78,23 +81,18 @@ describe KanbanToTable do
 
   def kanban_with_substages
     kanban = Kanban.new
-    kanban.add_stage('selected').
-      stages[0].add_card('A')
+    kanban.add_stage('selected').add_card('A')
 
-    kanban.add_stage('development').
-      stages[1].
-        add_substage('acceptance').
-        add_substage('in progress').
-        add_substage('done').
-          substages[2].
+    stage = kanban.add_stage('development')
+    stage.add_substage('acceptance')
+    stage.add_substage('in progress')
+    stage.add_substage('done').
             add_card('B').
             add_card('C')
 
-    kanban.add_stage('deployment').
-      stages[2].
-        add_substage('in progress').
-        add_substage('done').
-          substages[1].
+    stage = kanban.add_stage('deployment')
+    stage.add_substage('in progress')
+    stage.add_substage('done').
             add_card('D').
             add_card('E') 
     return kanban

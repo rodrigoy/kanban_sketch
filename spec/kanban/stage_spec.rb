@@ -6,6 +6,13 @@ describe Stage do
     stage(['A', 'B'], limit=2).cards.size.should eql(2)
   end
 
+  it "should batch add cards to stages" do
+    stage = Stage.new('test')
+    stage.add_cards('A, B, C');
+    stage.cards[0].should eql('A')
+    stage.cards[2].should eql('C')
+  end
+
   it "should warn wip limit violations" do
     stage(['A', 'B']).wip_limit_violated?.should be_false
     stage(['A', 'B'], limit=2).wip_limit_violated?.should be_false

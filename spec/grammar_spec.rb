@@ -19,6 +19,7 @@ describe KanbanDSL do
     sel = parser.parse("selected:2(A,B,C);done(D,E);deploy:10();")
     sel.should_not be_nil
     sel.stages[0].limit.should eql(2)
+    sel.stages[1].limit.should be_nil
     sel.stages[2].limit.should eql(10)
   end
 
@@ -26,14 +27,14 @@ describe KanbanDSL do
     parser = KanbanDSLParser.new()
     sel = parser.parse(
       "selected:2(A,B,C);" +
-      "development[in progress(D,E,F)][done()];" +
+      "development[in progress(D,E,F)][done:2()];" +
       "deploy(G,H);")
     sel.should_not be_nil
     sel.stages[1].name.text_value.should eql('development')
     sel.stages[1].body.substages[0].name.text_value.should eql('in progress')
     sel.stages[1].body.substages[1].name.text_value.should eql('done')
+    sel.stages[1].body.substages[1].limit.should eql(2)
     sel.stages[1].body.substages[0].cards.text_value.should eql('D,E,F')
-
   end
 
   it "should render a full complex kanban" do

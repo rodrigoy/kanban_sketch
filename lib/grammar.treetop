@@ -14,7 +14,11 @@ grammar KanbanDSL
         elements[2]
       end
       def limit
-        elements[1].elements[1].text_value.to_i
+        if !elements[1].text_value.empty?
+          elements[1].elements[1].text_value.to_i
+        else 
+          nil
+        end
       end
     }
   end
@@ -32,6 +36,13 @@ grammar KanbanDSL
       def cards
         cards_expr.cards
       end
+      def limit
+        if !elements[2].text_value.empty?
+          elements[2].elements[1].text_value.to_i
+        else 
+          nil
+        end
+      end
      }
   end
 
@@ -48,11 +59,7 @@ grammar KanbanDSL
   end
 
   rule limit
-    [0-9]+ {
-      def value
-        elements[1].text_value.to_i
-      end
-    }
+    [0-9]+
   end
 
 end

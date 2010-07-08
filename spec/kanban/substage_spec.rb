@@ -6,6 +6,13 @@ describe SubStage do
     substage(['A', 'B'], limit=2).cards.size.should eql(2)
   end
 
+  it "should batch add cards to substages" do
+    substage = SubStage.new(Stage.new('development'), 'in progress')
+    substage.add_cards('A, B, C');
+    substage.cards[0].should eql('A')
+    substage.cards[2].should eql('C')
+  end
+
   it "should warn wip limit violations" do
     substage(['A', 'B']).wip_limit_violated?.should be_false
     substage(['A', 'B'], limit=2).wip_limit_violated?.should be_false

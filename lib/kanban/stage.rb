@@ -5,15 +5,20 @@ class Stage
   
   def initialize(name, limit=0)
     @name = name.strip if name
-    @limit = limit.to_i if limit
+    @limit = limit.to_i
     @substages = []
     @cards = []
   end
 
   def add_substage(name, limit=0)
-    @substages << SubStage.new(self, name, limit)
-    return self
+    substage = SubStage.new(self, name, limit)
+    @substages << substage
+    return substage
   end
+
+  def add_cards list
+    list.split(',').each {|card| add_card card.strip}
+  end  
 
   def add_card name
     @cards << name

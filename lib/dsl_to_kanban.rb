@@ -1,27 +1,28 @@
-class DslToKanban
-  attr_accessor :text
-  def initialize(text)
-    self.text = text
-  end
+require 'treetop'
+require File.dirname(__FILE__) + '/../lib/grammar'
 
-  def parse
-    kanban = Kanban.new
-    text.each_line do |line|
-      kanban.stages << Stage.new(*(line.match(/-(.*):?(\d+)?/).captures)) if stage?(line)
-      kanban.stages[-1].cards << Card.new(line) if card?(line)
+class DSLToKanban
+
+  def self.render(dsl_text)
+    
+    parser = KanbanDSLParser.new()
+    tree = parser.parse(dsl_text)
+    raise parser.failure_reason if parser.failure_reason
+
+    kanban = Kanban.new()
+    
+    tree.stages.each do |stage|
+      new_stage = kanban.add_stage(stage.name.text_value, limit=stage.limit)
+      new_stage.add_cards(stage.body.cards.text_value) if stage.body.respond_to?(:cards);
+      
+      if stage.body.respond_to?(:substages)    
+        stage.body.substages.each do |substage|
+          new_substage = new_stage.add_substage(substage.name.text_value, limit=substage.limit)
+          new_substage.add_cards(substage.cards.text_value)
+        end
+      end
+
     end
-    kanban
-  end
-
-  def card?(line)
-    line.match(/^[^-](.+)/)
-  end
-
-  def stage?(line)
-    line.match(/^-[^-](.+)/)
-  end
-
-  def substage?(line)
-    line.match(/^--(.+)/)
+    return kanban
   end
 end

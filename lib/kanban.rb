@@ -11,7 +11,7 @@ class Kanban
   def add_stage(name, limit=0)
     stage = Stage.new(name, limit)
     self.stages << stage
-    return self
+    return stage
   end  
 
   def has_substages?

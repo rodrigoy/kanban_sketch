@@ -1,84 +1,32 @@
 require "spec_helper"
 
-describe DslToKanban do
-  subject{ DslToKanban.new "" }
+describe DSLToKanban do
 
-  describe "#card?" do
-    context "with a line that start with -" do
-      it do
-        subject.card?("- Misplaced card name").should be_false
-      end
-    end
-    context "with a line that start with --" do
-      it do
-        subject.card?("-- Misplaced card name").should be_false
-      end
-    end
-    context "with a line that does not start with - or --" do
-      it do
-        subject.card?("Card name").should be_true
-      end
-    end
+  it 'should render simple stages' do
+    dsl_text = 'selected(A,B,C);done(D,E);deploy();'
+    kanban = DSLToKanban.render(dsl_text)
+    kanban.stages[0].name.should eql('selected')
+    kanban.stages[1].name.should eql('done')
+    kanban.stages[0].cards[0].should eql('A')
   end
 
-  describe "#stage?" do
-    context "with a line that start with -" do
-      it do
-        subject.stage?("- Stage name").should be_true
-      end
-    end
-    context "with a line that start with --" do
-      it do
-        subject.stage?("-- Stage name").should be_false
-      end
-    end
+  it 'should render stage limits' do
+    dsl_text = 'selected:2(A,B,C);done(D,E);deploy:10();'
+    kanban = DSLToKanban.render(dsl_text)
+    kanban.stages[0].limit.should eql(2)
+    kanban.stages[1].limit.should eql(0)
+    kanban.stages[2].limit.should eql(10)
   end
 
-  describe "#substage?" do
-    context "with a line that start with -" do
-      it do
-        subject.substage?("- Misplaced substage name").should be_false
-      end
-    end
-    context "with a line that start with --" do
-      it do
-        subject.substage?("-- Stage name").should be_true
-      end
-    end
-  end
-
-  describe "#parse" do
-    context "with a kanban of 1 stage, 1 substage and one card" do
-      before(:each) do
-        @text = <<-KB
-- Stage
--- Subtage
-Card 1 inside Substage
-        KB
-
-        @parser = DslToKanban.new(@text)
-        @kanban = @parser.parse
-      end
-      it do
-        @kanban.should_not be_nil
-      end
-      it do
-        @kanban.should have(1).stages
-      end
-      it "should have one card inside the first stage" do
-        @kanban.stages[0].should have(1).cards
-      end
-    end
-
-    context "with a valid kanban text" do
-      before(:each) do
-        @text = "- Stage"
-        @parser = DslToKanban.new(@text)
-        @kanban = @parser.parse
-      end
-      it "should parse" do
-        @kanban.should_not be_nil
-      end
-    end
+  it "should render substages" do
+    dsl_text = 'selected:2(A,B,C);' +
+      'development[in progress:2(D,E,F)][done()];' +
+      'deploy(G,H);'
+    kanban = DSLToKanban.render(dsl_text)
+    kanban.stages[1].substages[0].name.should eql('in progress')
+    kanban.stages[1].substages[0].limit.should eql(2)
+    kanban.stages[1].substages[0].cards[1].should eql('E')
+    kanban.stages[1].substages.size.should eql(2)
+    
   end
 end

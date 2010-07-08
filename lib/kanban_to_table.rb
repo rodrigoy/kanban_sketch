@@ -11,7 +11,7 @@ class KanbanToTable
     kanban.stages.each do |stage| 
       
       th1 = OpenStruct.new()
-      th1.p1 = stage.limit > 0 ? stage.limit : ''
+      th1.p1 = stage.limit.to_i > 0 ? stage.limit : ''
       th1.violated = stage.wip_limit_violated?
       th1.p2 = stage.name
       th1.rowspan = kanban.has_substages? && stage.substages.empty? ? 2 : 1;
@@ -22,7 +22,7 @@ class KanbanToTable
 
       stage.substages.each do |substage|       
         th2 = OpenStruct.new()
-        th2.p1 = substage.limit > 0 ? substage.limit : ''
+        th2.p1 = substage.limit.to_i > 0 ? substage.limit : ''
         th2.violated = substage.wip_limit_violated?
         th2.p2 = substage.name
 
