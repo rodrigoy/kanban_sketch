@@ -10,8 +10,9 @@ class Stage
     @cards = []
   end
 
-  def add_substage(name, limit=0)
+  def add_substage(name, limit=0, cards='')
     substage = SubStage.new(self, name, limit)
+    substage.add_cards(cards)
     @substages << substage
     return substage
   end

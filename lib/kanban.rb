@@ -8,8 +8,9 @@ class Kanban
     self.stages = []
   end
   
-  def add_stage(name, limit=0)
+  def add_stage(name, limit=0, cards='')
     stage = Stage.new(name, limit)
+    stage.add_cards(cards)
     self.stages << stage
     return stage
   end  

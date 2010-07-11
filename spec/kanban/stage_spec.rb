@@ -19,11 +19,18 @@ describe Stage do
     stage(['A', 'B', 'C'], limit=2).wip_limit_violated?.should be_true
   end
 
-  it "should add substages to stages" do
-    Stage.new('development', limit=2).
-       add_substage('to do').
-       add_substage('done').
-       substages.size.should eql(2)
+  it "should add substages by name and limit" do
+    stage = Stage.new('development', limit=2)
+    stage.add_substage('to do')
+    stage.add_substage('done')
+    stage.substages.size.should eql(2)
+  end
+
+  it "should add substages by name, limit and cards" do
+    stage = Stage.new('development', limit=5)
+    stage.add_substage('to do', limit=3, cards='A,B,Cc')
+    stage.substages[0].limit.should eql(3)
+    stage.substages[0].cards[2].should eql('Cc')
   end
 
   it "should list all substages cards" do
@@ -51,13 +58,8 @@ describe Stage do
 
   def stage_with_substages
     stage = Stage.new('development', limit=3)
-    stage.add_substage('to do').
-      substages[0].
-       add_card('A').
-       add_card('B')
-    stage.add_substage('done').  
-      substages[1].
-       add_card('C')
+    stage.add_substage('to do', limit=nil, cards='A,B')
+    stage.add_substage('done', limit=nil, cards='C')
     return stage
   end
 

@@ -1,65 +1,40 @@
 grammar KanbanDSL
 
-  rule stages
-    (stage)+  {
+  rule stages    
+    stage* {
       def stages
         elements
       end
     }
   end
-
-  rule stage
-    name ([\:] limit)? (cards_expr / substages_expr) ';' {
-      def body
-        elements[2]
+  
+  rule stage    
+    ([\s]*)? [\-]? _name:name _limit:limit? [\=]? _cards:cards_body ';' ([\s]*)? {
+      def substage?
+        !elements[1].text_value.empty?
+      end
+      def name
+        _name.text_value
       end
       def limit
-        if !elements[1].text_value.empty?
-          elements[1].elements[1].text_value.to_i
-        else 
-          nil
-        end
+        _limit.elements[1].text_value.to_i unless _limit.text_value.empty?
       end
-    }
-  end
-
-  rule substages_expr
-    (substage)+ {
-      def substages
-        elements
-      end
-    }
-  end
-
-  rule substage
-    [\[] name ([\:] limit)? cards_expr [\]] {
       def cards
-        cards_expr.cards
+        _cards.text_value
       end
-      def limit
-        if !elements[2].text_value.empty?
-          elements[2].elements[1].text_value.to_i
-        else 
-          nil
-        end
-      end
-     }
+    }
   end
-
-  rule cards_expr
-    [\(] cards [\)]
-  end
-
-  rule cards
-    (name [,]?)* 
-  end
-
+  
   rule name
-    ([a-zA-Z0-9\s]+)
+    [\w\s]+
   end
 
   rule limit
-    [0-9]+
+    [\:] ([0-9]+)
+  end
+
+  rule cards_body
+    (name [,]?)*
   end
 
 end
