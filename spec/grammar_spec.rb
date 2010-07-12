@@ -5,11 +5,12 @@ describe KanbanDSL do
 
   it "should render simple stages with limits" do
     parser = KanbanDSLParser.new()
-    sel = parser.parse("
-       to do=A,B;
-       in progress:3=G,H,I;
-       waiting;
-      ")
+    dsl ="to do=A,B.
+in progress:3=G,H,I.
+waiting=G.
+"
+    #dsl.should eql("")    
+    sel = parser.parse(dsl)
     parser.failure_reason.should be_nil
     sel.should_not be_nil
     sel.stages[0].name.should eql('to do')
@@ -22,12 +23,12 @@ describe KanbanDSL do
   it "should render substages with limits" do
     parser = KanbanDSLParser.new()
     sel = parser.parse("
-      selected:2=A,B;
-      development:5;
-        -in progress:3=C,D,E;
-        -done=F,G;
-      to deploy=H,I;
-      in production=J,K,L,M,N,O,P;
+      selected:2=A,B.
+      development:5.
+        -in progress:3=C,D,E.
+        -done=F,G.
+      to deploy=H,I.
+      in production=J,K,L,M,N,O,P.
     ")
     parser.failure_reason.should be_nil
     sel.should_not be_nil

@@ -9,7 +9,7 @@ grammar KanbanDSL
   end
   
   rule stage    
-    ([\s]*)? [\-]? _name:name _limit:limit? [\=]? _cards:cards_body ';' ([\s]*)? {
+    ([\s]*)? [\-]? _name:name _limit:limit? [\=]? _cards:cards_body '.' ([\s]*)? {
       def substage?
         !elements[1].text_value.empty?
       end

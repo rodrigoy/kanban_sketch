@@ -12,9 +12,9 @@ set :views, File.dirname(__FILE__) + '/views'
 get '/' do
   
   @dsl_text = "
-To do=Find a date,Get a job,Car Wash,Fix the chair;
-In Progress:2=Homework, Watch TV, Surf on the Internet;
-Done=Breakfast,Bed,Wake Up;"
+To do=Find a date,Get a job,Car Wash,Fix the chair.
+In Progress:2=Homework, Watch TV, Surf on the Internet.
+Done=Breakfast,Bed,Wake Up."
   @table = KanbanToTable.render(DSLToKanban.render(@dsl_text))
   erb :index
 end

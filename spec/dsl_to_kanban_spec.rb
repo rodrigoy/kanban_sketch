@@ -3,7 +3,7 @@ require "spec_helper"
 describe DSLToKanban do
 
   it 'should render simple stages' do
-    dsl_text = 'selected=A,B,C;done=D,E;deploy;'
+    dsl_text = 'selected=A,B,C.done=D,E.deploy.'
     kanban = DSLToKanban.render(dsl_text)
     kanban.stages[0].name.should eql('selected')
     kanban.stages[1].name.should eql('done')
@@ -11,7 +11,7 @@ describe DSLToKanban do
   end
 
   it 'should render stage limits' do
-    dsl_text = 'selected:2=A,B,C;done=D,E;deploy:10;'
+    dsl_text = 'selected:2=A,B,C.done=D,E.deploy:10.'
     kanban = DSLToKanban.render(dsl_text)
     kanban.stages[0].limit.should eql(2)
     kanban.stages[1].limit.should eql(0)
@@ -20,11 +20,11 @@ describe DSLToKanban do
 
   it "should render substages" do
     dsl_text = "
-      selected:2=A,B,C;
-      development;
-        -in progress:2=D,E,F;
-        -done;
-      deploy=G,H;
+      selected:2=A,B,C.
+      development.
+        -in progress:2=D,E,F.
+        -done.
+      deploy=G,H.
     "
     kanban = DSLToKanban.render(dsl_text)
     kanban.stages[1].substages[0].name.should eql('in progress')
