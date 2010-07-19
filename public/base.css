@@ -1,0 +1,219 @@
+* { margin: 0 auto; font-family:"Trebuchet Ms", Verdana, Tahoma;}
+
+html, body { height: 100%; }
+* html #agile { height: 100%;}
+.clear { clear: both; }
+body { text-align: center; background-color:#DDD; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#agile { 
+  padding:8px;			
+  text-align: justify;
+	width: 940px;
+	background-color: #FFF;
+	min-height: 100%;
+	position: relative;
+}
+
+#message {
+  border: solid red 2px;
+  font-size: 14px;
+  color: red;
+  text-align: center;
+	margin-left: 30px;
+	margin-right: 30px;
+  width: auto;
+}
+
+#contents {
+  overflow: auto;
+  max-height:300px;
+  min-height:150px;
+  max-width:880px;
+  text-align: center;
+  padding: 3px;
+}
+
+table.kanban {
+  font-size: 11px;
+  width: auto;      
+  border-collapse: collapse;
+  border: solid 3px black;
+}
+
+table.kanban tr th {
+  padding:5px;
+  text-align:center;      
+  backgound-color: yellow;
+  border: solid 2px black;
+  width:70px;
+}
+
+table.kanban tr td {
+  padding:5px;
+  vertical-align:top;
+  text-align:center;      
+  border: solid 2px black;
+}
+
+#card {
+  background-color: #D8D8D8;
+  border: inset 1px gray;
+  margin:4px;
+  padding:3px;
+  width:55px;
+  font-size:9px;
+}
+
+p.p1 {
+  color:green;
+  height:1em;
+}
+
+p.p1_violated {
+  color: white;
+  background-color: red;
+  height:1.3em;
+}		
+
+#header {
+  margin: 10px;			
+  position: relative;
+	height: 65px;
+  width: 620px;
+}
+
+#header img {
+	float: left;
+	border: 0 none transparent;
+}
+
+#header h1.logo a:hover {
+	text-decoration: none;
+}
+
+#header h1.logo {
+	font-size: 10px;
+	clear: both;
+	margin-left: 25px;
+}
+
+#slogan {
+  color:#606060;
+  font-size:16px;
+  margin-left:110px;
+  margin-top:25px;
+  position:absolute;
+}
+#slogan a {
+  font-size: 10px;
+}
+#header #nav {
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+}
+
+#header #nav li {
+	float: right;
+	width: 100px;
+	list-style: none;
+}
+
+#header #nav li a {
+	font-size: 12px;
+}
+
+#share_url {
+  text-align: center;
+  margin: 8px;      
+  color: #FF9900;
+  font-size: 14px;
+}
+
+.short_url_link { 
+  text-align: center;
+  color:black;
+  width:190px; 
+  text-align:center; 
+  border:1px solid black; 
+  background-color:#ccc; 
+  margin:5px; 
+  padding:3px; 
+  cursor:default; 
+}
+
+.short_url_link.hover { 
+  background-color:#eee; 
+}
+
+.short_url_link.active { 
+  background-color:#aaa; 
+}
+
+#dsl {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	width: 800px;
+  vertical-align:top;
+}
+
+#dsl textarea {
+  padding: 0px;
+	text-align: left;
+	font-size: 11px;
+	width: 600px;
+	height: 100px;
+}
+
+#dsl input {
+	width: 100px;
+	height: 100px;
+	font-size: 18px;
+}
+
+#usage {
+  background-color: #FFFF99;
+	width: 600px;
+  font-size: 11px;
+  padding: 8px;
+}
+
+#usage h1 {
+  font-size: 16px;
+}
+
+#usage h2 {
+  font-size: 14px;
+}
+
+#kanban_example {    
+  background-color: white;
+	width: auto;
+  font-size: 11px;
+  margin:8px;
+  padding:14px;
+}
+
+#kanban_name {
+  font-size: 12px;
+  color: #FF9933;
+}
+
+#usage h3 {
+  font-size: 12px;
+}
+
+#footer {
+	clear: both;
+	position: absolute;
+	bottom: 2;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+  font-size:10px;
+}
+

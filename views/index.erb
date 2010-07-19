@@ -2,197 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>KANBAN Sketch - Cards Board online example tool</title>
-	<style type="text/css">
-		* { margin: 0 auto; font-family:"Trebuvhet Ms", Verdana, Tahoma;}
-		
-		html, body { height: 100%; }
-		* html #agile { height: 100%;}
-		.clear { clear: both; }
-		body { text-align: center; background-color:#DDD; }
-		a { text-decoration: none; }
-		a:hover { text-decoration: underline; }
-		
-		#agile { 
-      padding:8px;			
-      text-align: justify;
-			width: 800px;
-			background-color: #FFF;
-			min-height: 100%;
-			position: relative;
-		}
-
-    #message {
-      border: solid red 2px;
-      font-size: 14px;
-      color: red;
-      text-align: center;
-			margin-left: 30px;
-			margin-right: 30px;
-      width: auto;
-    }
-
-    table.kanban {
-      font-size: 11px;
-      width: auto;      
-      border-collapse: collapse;
-      border: solid 3px black;
-    }
-
-    table.kanban tr th {
-      padding:5px;
-      text-align:center;      
-      backgound-color: yellow;
-      border: solid 2px black;
-      width:70px;
-    }
-
-    table.kanban tr td {
-      padding:5px;
-      vertical-align:top;
-      text-align:center;      
-      border: solid 2px black;
-    }
-
-    #card {
-      background-color: #D8D8D8;
-      border: inset 1px gray;
-      margin:4px;
-      padding:3px;
-      width:55px;
-      font-size:9px;
-    }
-
-    p.p1 {
-      color:green;
-      height:1em;
-    }
-
-    p.p1_violated {
-      color: white;
-      background-color: red;
-      height:1.3em;
-    }		
-
-		#header {
-      margin: 10px;			
-      position: relative;
-			height: 65px;
-      width: 620px;
-		}
-		
-		#header img {
-			float: left;
-			border: 0 none transparent;
-		}
-		
-		#header h1.logo a:hover {
-			text-decoration: none;
-		}
-		
-		#header h1.logo {
-			font-size: 10px;
-			clear: both;
-			margin-left: 25px;
-		}
-		
-    #slogan {
-      color:#606060;
-      font-size:16px;
-      margin-left:110px;
-      margin-top:25px;
-      position:absolute;
-    }
-    #slogan a {
-      font-size: 10px;
-		}
-		#header #nav {
-			position: absolute;
-			bottom: 10px;
-			right: 0;
-		}
-		
-		#header #nav li {
-			float: right;
-			width: 100px;
-			list-style: none;
-		}
-		
-		#header #nav li a {
-			font-size: 12px;
-		}
-		
-    #share_url {
-      text-align: center;
-      margin: 8px;      
-      color: blue;
-      font-size: 10px;
-    }
-
-		#dsl {
-			text-align: center;
-			padding-top: 10px;
-			padding-bottom: 20px;
-			width: 800px;
-      vertical-align:top;
-		}
-		
-		#dsl textarea {
-      padding: 0px;
-			text-align: left;
-			font-size: 11px;
-			width: 600px;
-			height: 100px;
-		}
-    
-    #dsl input {
-			width: 100px;
-			height: 100px;
-			font-size: 18px;
-    }
-
-    #usage {
-      background-color: #FFFF99;
-			width: 600px;
-      font-size: 11px;
-      padding: 8px;
-		}
-
-    #usage h1 {
-      font-size: 16px;
-    }
-
-    #usage h2 {
-      font-size: 14px;
-    }
-
-    #kanban_example {    
-      background-color: white;
-			width: auto;
-      font-size: 11px;
-      margin:8px;
-      padding:14px;
-    }
-
-    #kanban_name {
-      font-size: 12px;
-      color: #FF9933;
-    }
-
-    #usage h3 {
-      font-size: 12px;
-    }
-		
-    #footer {
-			clear: both;
-			position: absolute;
-			bottom: 2;
-			width: 100%;
-			height: 30px;
-			line-height: 30px;
-			text-align: center;
-      font-size:10px;
-		}
-	</style>
+  <link rel="stylesheet" href="/base.css" type="text/css" media="screen" charset="utf-8" />
   <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -206,11 +16,44 @@
     })();
 
   </script>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="ZeroClipboard.js"></script>
+	
+	<script language="JavaScript">
+		var clip = null;
+				
+		function init() {
+			// setup single ZeroClipboard object for all our elements
+			clip = new ZeroClipboard.Client();
+			clip.setHandCursor( true );
+			
+			// assign a common mouseover function for all elements using jQuery
+			$('span.short_url_link').mouseover( function() {
+				// set the clip text to our innerHTML
+				clip.setText( this.innerHTML );
+				
+				// reposition the movie over our element
+				// or create it if this is the first time
+				if (clip.div) {
+					clip.receiveEvent('mouseout', null);
+					clip.reposition(this);
+				}
+				else clip.glue(this);
+				
+				// gotta force these events due to the Flash movie
+				// moving all around.  This insures the CSS effects
+				// are properly updated.
+				clip.receiveEvent('mouseover', null);
+			} );
+		}
+	</script>
+
+
   <meta name="description" content="Simple online Kanban tool for sketching. Just type your value flow and share your thoughts with your friends." />
 
       <meta name="keywords" content="kanban, tool, sketching, WIP Limits, value flow, process, scrum, extreme programming, agile, card wall, board" />
 </head>
-<body>
+<body onLoad="init()">
   <div id="agile">
   Beta
   <a target="_blank" href="http://github.com/rodrigoy/kanban_sketch"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub" /></a>	
@@ -222,6 +65,7 @@
       <% if @message %>      
       <div id='message'><%= @message %></div>
       <% else %>
+      <div id="contents">      
       <table class="kanban">
         <tr>      
           <% @table.th1.each do |th| %>
@@ -249,8 +93,12 @@
         <% end %>
         </tr>
       </table>
+      </div>
 
-      <div id="share_url"><a href="<%= request.url%>"><%= request.url%></a></div>
+      <div id="share_url">
+      Short URL to share (click to copy to clipboard): 
+      <span class="short_url_link">http://<%= request.host_with_port%>/<%= @short_url_id%></span>
+      </div>
       <% end %>
       
 			<div class="clear"></div>
