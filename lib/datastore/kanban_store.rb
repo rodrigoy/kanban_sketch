@@ -4,7 +4,7 @@ require 'mongo'
 class KanbanStore
   
   uri = URI.parse(ENV['MONGOHQ_URL'])
-  conn = Mongo::Connection.new(uri.host, uri.port)
+  conn = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
   db = conn.db(uri.path.gsub(/^\//, ''))
   @collection = db.collection('kanbans')
 
