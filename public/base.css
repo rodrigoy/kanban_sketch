@@ -125,22 +125,34 @@ p.p1_violated {
 	font-size: 12px;
 }
 
-#share_url {
+.share_url {
+  margin-left: auto;      
+  margin-right: auto; 
+  margin-top:13px;     
+  background-image: url(/shorturl_frame.png);
+  background-repeat: no-repeat;
+  width:280px;
+  height:60px;
   text-align: center;
-  margin: 8px;      
-  color: #FF9900;
-  font-size: 14px;
+  vertical-align: middle;
+  color: black;
+  font-size: 18px;
+  padding-top:20px;
+}
+
+.share_url.hover {
+  color:blue;
+  font-weight: bold;
 }
 
 .short_url_link { 
-  text-align: center;
+  position:absolute;  
   color:black;
-  width:190px; 
-  text-align:center; 
-  border:1px solid black; 
-  background-color:#ccc; 
-  margin:5px; 
-  padding:3px; 
+  font-size: 18px;
+  margin:auto;
+  padding:8px;
+  width:260px;
+  height:24px;
   cursor:default; 
 }
 

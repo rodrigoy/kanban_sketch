@@ -28,7 +28,7 @@
 			clip.setHandCursor( true );
 			
 			// assign a common mouseover function for all elements using jQuery
-			$('span.short_url_link').mouseover( function() {
+			$('div.share_url').mouseover( function() {
 				// set the clip text to our innerHTML
 				clip.setText( this.innerHTML );
 				
@@ -95,10 +95,7 @@
       </table>
       </div>
 
-      <div id="share_url">
-      Short URL to share (click to copy to clipboard): 
-      <span class="short_url_link">http://<%= request.host_with_port%>/<%= @short_url_id%></span>
-      </div>
+      <div class="share_url">http://<%= request.host_with_port%>/<%= @short_url_id%></div>
       <% end %>
       
 			<div class="clear"></div>
