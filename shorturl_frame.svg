@@ -16,8 +16,8 @@
    inkscape:version="0.47pre4 r22446"
    sodipodi:docname="shorturl_frame.svg"
    inkscape:export-filename="/home/rodrigoy/projetos/kanban-sketch/public/shorturl_frame.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-xdpi="100"
+   inkscape:export-ydpi="100">
   <defs
      id="defs4">
     <inkscape:perspective
@@ -78,37 +78,42 @@
      id="layer1"
      transform="translate(0,-982.3622)">
     <path
-       style="fill:none;stroke:#808000;stroke-width:1.22405505;stroke-opacity:1"
-       d="m 93.633975,1050.9139 -83.8534093,0 c -3.6648623,0 -6.6152749,-3.1823 -6.6152749,-7.1351 l 0,-27.8178 c 0,-3.9528 2.9504126,-7.1351 6.6152749,-7.1351 l 0.6397463,0 m 143.502628,0 68.90839,0 c 3.66486,0 6.61527,3.1823 6.61527,7.1351 l 0,27.8178 c 0,3.9528 -2.95041,7.1351 -6.61527,7.1351 l -0.43203,0"
+       style="fill:none;stroke:#808000;stroke-width:1.28946638;stroke-opacity:1"
+       d="m 94.105415,1050.8736 -83.565878,0 c -4.0672139,0 -7.3415405,-3.1823 -7.3415405,-7.1346 l 0,-27.8167 c 0,-3.9525 3.2743266,-7.1347 7.3415405,-7.1347 l 0.709981,0 m 212.361292,0 23.36952,0 c 4.06718,0 7.34151,3.1822 7.34151,7.1347 l 0,27.8167 c 0,3.9523 -3.27433,7.1346 -7.34151,7.1346 l -0.47949,0"
        id="rect2816"
-       sodipodi:nodetypes="cccccccccccc" />
+       sodipodi:nodetypes="cccccccccccc"
+       inkscape:export-filename="/home/rodrigoy/projetos/kanban-sketch/public/shorturl_frame.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        xml:space="preserve"
-       style="font-size:19.58488083px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       x="12.413471"
-       y="1010.6738"
+       style="font-size:19.62041473px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="12.43022"
+       y="1012.4608"
        id="text3590"
        inkscape:export-filename="/home/rodrigoy/projetos/kanban-sketch/public/shorturl_frame.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
+       inkscape:export-ydpi="90"
+       transform="scale(1.0003611,0.99963904)"><tspan
          sodipodi:role="line"
          id="tspan3592"
-         x="12.413471"
-         y="1010.6738"
-         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">Short URL to share with your friends</tspan></text>
+         x="12.43022"
+         y="1012.4608"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">Short URL to share with your friends</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:19.58488083px;font-style:normal;font-weight:normal;fill:#808000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       x="96.764565"
-       y="1054.6693"
+       style="font-size:19.62041473px;font-style:normal;font-weight:normal;fill:#808000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="96.934372"
+       y="1055.0469"
        id="text3590-4"
        inkscape:export-filename="/home/rodrigoy/projetos/kanban-sketch/public/shorturl_frame.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
+       inkscape:export-ydpi="90"
+       transform="scale(1.0003611,0.99963904)"><tspan
          sodipodi:role="line"
          id="tspan3592-6"
-         x="96.764565"
-         y="1054.6693"
-         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#808000;font-family:Arial;-inkscape-font-specification:Arial Bold">click to copy to clipboard!</tspan></text>
+         x="96.934372"
+         y="1055.0469"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#808000;font-family:Arial;-inkscape-font-specification:Arial Bold">click to copy to clipboard!</tspan></text>
   </g>
 </svg>

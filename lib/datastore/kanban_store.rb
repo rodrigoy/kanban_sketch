@@ -3,8 +3,9 @@ require 'mongo'
 
 class KanbanStore
   
-  uri = URI.parse(ENV['MONGOHQ_URL'])
-  conn = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
+  url = ENV['MONGOHQ_URL']
+  uri = URI.parse(url)
+  conn = url.match('localhost') ? Mongo::Connection.new(uri.host, uri.port) : Mongo::Connection.from_uri(url)
   db = conn.db(uri.path.gsub(/^\//, ''))
   @collection = db.collection('kanbans')
 
