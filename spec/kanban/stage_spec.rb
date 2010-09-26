@@ -53,14 +53,14 @@ describe Stage do
   def stage(cards, limit=0)
     stage =  Stage.new('development', limit)
     cards.each {|card| stage.add_card card}
-    return stage
+    stage
   end
 
   def stage_with_substages
     stage = Stage.new('development', limit=3)
     stage.add_substage('to do', limit=nil, cards='A,B')
     stage.add_substage('done', limit=nil, cards='C')
-    return stage
+    stage
   end
 
 end
