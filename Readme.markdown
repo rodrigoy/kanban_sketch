@@ -1,11 +1,10 @@
 Kanban Sketch Project
+=====================
 
 This project will be developed by the brazilian software development community during Agile Brazil event (http://www.agilebrazil.com). If you're curious to know how this project came to life access this link on 
 Aspercom's blog (pt_BR):
 
-http://blog.aspercom.com.br/2010/06/23/agile-brazil-kanban-sketch
-
-
+<a href='http://blog.aspercom.com.br/2010/06/23/agile-brazil-kanban-sketch'>http://blog.aspercom.com.br/2010/06/23/agile-brazil-kanban-sketch</a>
 
 Project Vision
 ==============

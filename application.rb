@@ -2,14 +2,9 @@ require 'rubygems'
 require 'sinatra'
 require 'erb'
 require 'uri'
+require 'environment'
 
-require File.dirname(__FILE__) + '/lib/kanban_to_table'
-require File.dirname(__FILE__) + '/lib/dsl_to_kanban'
-require File.dirname(__FILE__) + '/lib/kanban'
-require File.dirname(__FILE__) + '/lib/datastore/kanban_store'
-require File.dirname(__FILE__) + '/lib/url_shortener_helper'
-
-set :views, File.dirname(__FILE__) + '/views'
+require 'kanban_sketch'
 
 get '/' do
   

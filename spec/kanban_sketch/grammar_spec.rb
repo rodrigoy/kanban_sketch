@@ -1,5 +1,4 @@
-require 'treetop'
-require File.dirname(__FILE__) + '/../lib/grammar'
+require 'spec_helper'
 
 describe KanbanDSL do
 

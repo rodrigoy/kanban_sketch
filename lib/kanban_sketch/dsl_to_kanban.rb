@@ -1,5 +1,5 @@
 require 'treetop'
-require File.dirname(__FILE__) + '/../lib/grammar'
+require 'kanban_sketch/grammar'
 
 class DSLToKanban
 
