@@ -30,6 +30,11 @@ get "/:text" do
   erb :index
 end
 
+get '/play/' do
+  get_table_by '1'
+  erb :playground
+end
+
 # playground implementation
 get '/play/:text' do
   get_table_by params[:text]
