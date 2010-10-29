@@ -6,11 +6,23 @@ html, body { height: 100%; }
 body { text-align: center; background-color:#DDD; }
 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
+a img {
+border-width:0;
+}
 
 #agile { 
   padding:8px;			
   text-align: justify;
 	width: 940px;
+	background-color: #FFF;
+	min-height: 100%;
+	position: relative;
+}
+
+#agile_play { 
+  padding: 5% 8px 5% 8px;			
+  text-align: justify;
+	width: 100%;
 	background-color: #FFF;
 	min-height: 100%;
 	position: relative;
@@ -45,9 +57,19 @@ table.kanban {
 table.kanban tr th {
   padding:5px;
   text-align:center;      
-  backgound-color: yellow;
   border: solid 2px black;
   width:70px;
+}
+
+table.kanban tr th input[type='text'] {
+  font-size:10px;
+  max-width:70px;  
+  text-align:center;
+  border-style:none; 
+}
+
+table.kanban tr th input[type='text']:hover {
+  border: 1px red dotted; 
 }
 
 table.kanban tr td {
@@ -64,6 +86,7 @@ table.kanban tr td {
   padding:3px;
   width:55px;
   font-size:9px;
+  list-style-type: none;
 }
 
 p.p1 {
@@ -75,7 +98,8 @@ p.p1_violated {
   color: white;
   background-color: red;
   height:1.3em;
-}		
+}
+		
 
 #header {
   margin: 10px;			
@@ -221,7 +245,6 @@ p.p1_violated {
 #footer {
 	clear: both;
 	position: absolute;
-	bottom: 2;
 	width: 100%;
 	height: 30px;
 	line-height: 30px;

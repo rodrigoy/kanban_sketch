@@ -16,7 +16,7 @@
     })();
 
   </script>
-	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery-1.4.2.js"></script>
 	<script type="text/javascript" src="ZeroClipboard.js"></script>
 	
 	<script language="JavaScript">
@@ -94,8 +94,10 @@
         </tr>
       </table>
       </div>
-
-      <div class="share_url">http://<%= request.host_with_port%>/<%= @short_url_id%></div>
+      <table><tr>
+      <td style="padding:4px"><div class="share_url">http://<%= request.host_with_port%>/<%= @short_url_id%></div></td>
+      <td style="padding:4px"><a border="0px" href="http://<%= request.host_with_port%>/play/<%= @short_url_id%>"><img src="playground_frame.png"></a></td>
+      </tr></table>
       <% end %>
       
 			<div class="clear"></div>

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>KANBAN Sketch - Cards Board online example tool</title>
+  <link rel="stylesheet" href="/base.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="/themes/base/jquery.ui.all.css">
+	<script type="text/javascript" src="/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="/ui/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="/ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="/ui/jquery.ui.mouse.js"></script>
+	<script type="text/javascript" src="/ui/jquery.ui.sortable.js"></script>
+	<script type="text/javascript" src="/ui/jquery.ui.position.js"></script>
+	<script type="text/javascript" src="/ui/jquery.ui.resizable.js"></script>
+	<script type="text/javascript" src="/ui/jquery.ui.dialog.js"></script>
+	<style type="text/css">
+    <% i = 1 %><% @table.td.each do |td| %><%= "#sortable#{i} " %> { list-style-type: none; margin: 0; padding: 0; min-height: 200px; min-width: 55px; float: left;}
+    <% i = i + 1 %><% end %> 
+	</style>
+	<script type="text/javascript">
+	$(function() {
+		$("<% i = 1 %><% @table.td.each do |td| %><%= "#sortable#{i}," %><% i = i + 1 %><% end %>").sortable({
+			connectWith: '.connectedSortable'
+		}).disableSelection();
+		$( "#dialog" ).dialog();
+	});
+  </script>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10190572-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+
+	<script language="JavaScript">
+
+	</script>
+
+
+  <meta name="description" content="Simple online Kanban tool for sketching. Just type your value flow and share your thoughts with your friends." />
+  <meta name="keywords" content="kanban, tool, sketching, WIP Limits, value flow, process, scrum, extreme programming, agile, card wall, board" />
+
+</head>
+<body>
+  <div id="dialog" title="Kanbansket.ch">
+	  <h3>Welcome to the Kanban Playground!</h3><br>
+    Here you can demonstrate your board design setting WIP limits and moving cards around.<br>
+    Use your browser features like zoom and full screen.
+  </div>
+
+  <div id="agile_play">
+      <table class="kanban">
+        <tr>      
+          <% @table.th1.each do |th| %>
+          <th colspan='<%= th.colspan%>' rowspan='<%= th.rowspan%>'>
+           <input type="text" value="<%= th.p1 %>"/><br>
+           <%= th.p2 %>
+          </th>
+          <% end %>
+        </tr>
+        <tr>      
+          <% @table.th2.each do |th| %>
+          <th>
+            <input type="text" value="<%= th.p1 %>"/><br/>
+            <%= th.p2 %>
+          </th>
+          <% end %>
+        </tr>
+        <tr>
+        <% i = 0 %>         
+        <% @table.td.each do |td| %>
+          <td>
+          <ul id="sortable<%= i = i + 1 %>" class="connectedSortable">
+          <% td.each do |div| %>
+	        <li id="card"><%= div %></li>
+          <% end %>
+          </ul>
+          </td>
+        <% end %>
+        </tr>
+      </table>
+      </div>
+
+			<div class="clear"></div>
+		</div>
+
+		<div id="footer">
+			<p><a href="http://kanbansket.ch">http://kanbansket.ch</a></p>
+		</div>
+	</div>
+</body>
+</html>

@@ -41,6 +41,34 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2827"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3652"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3678"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3715"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -49,17 +77,32 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.3588235"
-     inkscape:cx="170"
-     inkscape:cy="35"
+     inkscape:zoom="2.2521986"
+     inkscape:cx="256.08353"
+     inkscape:cy="22.590211"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
-     inkscape:window-height="744"
+     inkscape:window-height="685"
      inkscape:window-x="0"
      inkscape:window-y="31"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="0,1"
+       position="85.148862,48.82662"
+       id="guide3741" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="231.62872,42.872154"
+       id="guide3743" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="78.589871,3.108074"
+       id="guide3745" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -78,7 +121,7 @@
      id="layer1"
      transform="translate(0,-982.3622)">
     <path
-       style="fill:none;stroke:#808000;stroke-width:1.28946638;stroke-opacity:1"
+       style="fill:none;stroke:#808000;stroke-width:1.289;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 94.105415,1050.8736 -83.565878,0 c -4.0672139,0 -7.3415405,-3.1823 -7.3415405,-7.1346 l 0,-27.8167 c 0,-3.9525 3.2743266,-7.1347 7.3415405,-7.1347 l 0.709981,0 m 212.361292,0 23.36952,0 c 4.06718,0 7.34151,3.1822 7.34151,7.1347 l 0,27.8167 c 0,3.9523 -3.27433,7.1346 -7.34151,7.1346 l -0.47949,0"
        id="rect2816"
        sodipodi:nodetypes="cccccccccccc"
@@ -115,5 +158,58 @@
          x="96.934372"
          y="1055.0469"
          style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#808000;font-family:Arial;-inkscape-font-specification:Arial Bold">click to copy to clipboard!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1333847px;font-style:normal;font-weight:normal;fill:#808000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="272.93015"
+       y="1038.3763"
+       id="text3590-4-2"
+       inkscape:export-filename="/home/rodrigoy/projetos/kanban-sketch/public/playground_frame.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       transform="scale(1.0003611,0.99963904)"><tspan
+         sodipodi:role="line"
+         id="tspan3592-6-5"
+         x="272.93015"
+         y="1038.3763"
+         style="font-size:23.32267952px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#808000;font-family:Arial;-inkscape-font-specification:Arial Bold">Kanban Playground</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:25.45964241px;font-style:normal;font-weight:normal;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="462.39349"
+       y="1056.9036"
+       id="text3590-4-1"
+       inkscape:export-filename="/home/rodrigoy/projetos/kanban-sketch/public/playground_frame.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       transform="scale(1.0003611,0.99963904)"><tspan
+         sodipodi:role="line"
+         id="tspan3592-6-3"
+         x="462.39349"
+         y="1056.9036"
+         style="font-size:15.57131767px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ff0000;font-family:Arial;-inkscape-font-specification:Arial Bold">new!</tspan></text>
+    <path
+       style="fill:none;stroke:#808000;stroke-width:1.28900003;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 459.33089,1050.908 -194.58814,0 c -4.06722,0 -7.34154,-3.1823 -7.34154,-7.1346 l 0,-27.8167 c 0,-3.9525 3.27432,-7.1347 7.34154,-7.1347 l 0.70998,0 m 175.96368,0 59.76714,0 c 4.06718,0 7.34151,3.1822 7.34151,7.1347 l 0,27.8167 c 0,3.9523 -3.27433,7.1346 -7.34151,7.1346 l -1.63497,0"
+       id="rect2816-6"
+       sodipodi:nodetypes="cccccccccccc"
+       inkscape:export-filename="/home/rodrigoy/projetos/kanban-sketch/public/playground_frame.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <text
+       xml:space="preserve"
+       style="font-size:19.62041473px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="267.42935"
+       y="1012.7842"
+       id="text3590-8"
+       inkscape:export-filename="/home/rodrigoy/projetos/kanban-sketch/public/playground_frame.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       transform="scale(1.0003611,0.99963904)"><tspan
+         sodipodi:role="line"
+         id="tspan3592-4"
+         x="267.42935"
+         y="1012.7842"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">Drag 'n Drop cards flow demo</tspan></text>
   </g>
 </svg>

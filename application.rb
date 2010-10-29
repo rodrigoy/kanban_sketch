@@ -1,3 +1,6 @@
+lib_dir = File.expand_path(File.join(File.dirname(__FILE__), 'lib'))
+$LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
+
 require 'rubygems'
 require 'sinatra'
 require 'erb'
@@ -23,8 +26,18 @@ end
 
 # :text is a DSL text or a short URL key
 get "/:text" do
+  get_table_by params[:text]
+  erb :index
+end
 
-  @text = URI.unescape(params[:text])
+# playground implementation
+get '/play/:text' do
+  get_table_by params[:text]
+  erb :playground
+end
+
+def get_table_by(text)
+  @text = URI.unescape(text)
   
   #try to find the @text as short URL key
   kanban_id = URLShortenerHelper.to_kanban_id(@text) if @text.length <= 13
@@ -40,7 +53,6 @@ get "/:text" do
     @message = error.message
   end
   
-  erb :index
 end
 
 
